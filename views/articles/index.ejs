@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+<style>
+body
+{
+background-color: rgba(255,255,255);
+background-position:center;
+background-image: url("../../Pics/Quill.jpg");
+background-repeat: no-repeat;
+
+}
+.transparent-bg-with-border {
+  background-color: transparent;
+  border: 1px solid #000;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+  <h1 class="mb-4 text-center">Innocent Lunika's </h1>
+   <h1 class="mb-4 text-center">Introspection, Metacognition and Opinion Blog</h1>
+  <h4><span style="margin:auto">Created by Zipho Innocent Lunika, 2023 (with assistance from  <a href="https://youtu.be/1NrHkjlWVhM">Kyle Cook</a>)</span></h4>
+   <% if (typeof error !== 'undefined') { %>
+  <script>alert("<%= error %>");</script>
+<% } %>
+  
+  <a href="/articles/new" class="btn btn-success">New Article</a>
+  
+  <% articles.forEach(article => { %>
+    <div class="card mt-4 transparent-bg-with-border">
+    <div class= "card-body">
+	<div class="card-title">
+	<div class="card-subtitle text-muted mb-2">
+	<h2><%= article.title %></h2>
+	<%= article.createdAt.toLocaleDateString() %>
+	</div>
+	<div class ="card-text mb-2"> <%= article.description %></div>
+	<a href="articles/<%= article.id%>" class ="btn btn-primary">Read More </a>
+	<form action="/articles/<%=article.id %>?_method=DELETE" method="POST" class="d-inline">
+	<button type="submit" class="btn btn-danger">Delete</button>
+ <input class="d-inline" type="password" id="password"  name="password" class="form-control" place-holder="Password for deletion">
+	</form>
+	</div>
+	</div>
+    </div>
+  <% }); %>
+  
+</div>
+<br>
+
+</body>
+</html>
