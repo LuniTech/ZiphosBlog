@@ -1,31 +1,8 @@
-/*Added stuff*/
-
 const express = require("express");
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 require("dotenv").config();
 const app = express();
-//Added code:  ==========================
-const AWS = require('aws-sdk');
-
-// Configure AWS SDK with your credentials
-AWS.config.update({
-  accessKeyId: process.env.AWS_ACCESS_KEY_IDD,
-  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEYY,
-  region: process.env.AWS_REGIONN,
-});
-
-const polly = new AWS.Polly();
-
-async function generatePollyAudio(text) {
-  // Use Amazon Polly to generate audio from text
-  // Implement the Polly audio generation logic here
-  // Return the URL or audio data
-}
-
-module.exports = { generatePollyAudio };
-//END=======================
-
 let Article = require("./models/article")
 let uri = process.env.MONGO_URI;
 mongoose.connect(uri,{useNewUrlParser:true,useUnifiedTopology:true})
@@ -50,4 +27,4 @@ app.get("/", async(req, res) => {
 
 
 console.log("Now listening on port 5000...");
-app.listen(process.env.PORT || 5000);
+app.listen(5000);

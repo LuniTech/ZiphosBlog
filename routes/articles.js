@@ -1,11 +1,8 @@
 const express = require("express")
 require("dotenv").config();
-const markdownIt = require('markdown-it')();
-const TurndownService = require('turndown');
 const password = process.env.PASSWORD;
 const router = express.Router();
 const Article = require("./../models/article");
-const { generatePollyAudio } = require('./polly')
 router.get("/new",(req,res) => {res.render("articles/new",{article: new Article()})})
 
 
@@ -19,7 +16,7 @@ router.get("/edit/:id",async(req,res) => {
 	})
 
 
-/*router.get('/:id', async(req,res)=>{
+router.get('/:id', async(req,res)=>{
 	//res.send(req.params.id)
 	const article = await Article.findById(req.params.id)
 	if(article == null){ res.redirect('/');
@@ -31,41 +28,7 @@ router.get("/edit/:id",async(req,res) => {
 		//console.log(article);
 	res.render('articles/show', {article : article});
 	}
-})*/
-
-router.get('/:id', async (req, res) => {
-  const articleId = req.params.id;
-
-  try {
-    const article = await Article.findById(articleId);
-
-    if (article == null) {
-      res.redirect('/');
-      console.log('Empty! Failed');
-    } else {
-		
-
-
-      // Generate Polly audio from the article content
-	  const markdownContent = article.markdown; // Replace with your actual property name
-
-   const turndownService = new TurndownService();
-const plainTextContent = turndownService.turndown(markdownContent);
-
-      const audioUrl = await generatePollyAudio(plainTextContent);
- console.log("Your audioURL: ");
-  console.log(audioUrl);
-  
-      res.render('articles/show', { article, pollyGeneratedAudioUrl: audioUrl });
-    }
-  } catch (error) {
-    console.error(error);
-    res.status(500).send('Error retrieving article');
-  }
-});
-
-
-
+})
 router.post('/', async(req,res)=>{
 	let article = new Article({
 		title: req.body.title,
