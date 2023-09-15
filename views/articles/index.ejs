@@ -15,14 +15,29 @@ background-repeat: no-repeat;
   background-color: transparent;
   border: 1px solid #000;
 }
+#WebPic
+{
+
+position:absolute;
+z-index:-1;
+height: 120px;
+width:120px;
+background-repeat: no-repeat;
+    background-size: 100% 100%;
+border-radius:50%;
+border:black 2px solid;
+background-image:url("../../Pics/PIC.jpeg");
+}
 </style>
 
 </head>
 <body>
 
 <div class="container">
+<div id="WebPic"></div>
+<br><br>
   <h1 class="mb-4 text-center">Innocent Lunika's </h1>
-   <h1 class="mb-4 text-center">Introspection, Metacognition and Opinion Blog</h1>
+   <h1 class="mb-4 text-center">Online Journal</h1>
   <h4><span style="margin:auto">Created by Zipho Innocent Lunika, 2023 (with assistance from  <a href="https://youtu.be/1NrHkjlWVhM">Kyle Cook</a>)</span></h4>
    <% if (typeof error !== 'undefined') { %>
   <script>alert("<%= error %>");</script>

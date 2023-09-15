@@ -23,6 +23,30 @@ background-repeat: no-repeat;
 <div>
 <%- article.sanitizedHtml %>
 </div>
+<!-- Add Play and Pause Buttons -->
+<button id="playButton" class="btn btn-primary">Play</button>
+<button id="pauseButton" class="btn btn-secondary">Pause</button>
+
+<!-- Add an audio player to play the audio -->
+<audio id="audioPlayer" controls>
+  <!-- Polly-generated audio URL will be set here -->
+</audio>
 </div>
+
+<script>
+  const playButton = document.getElementById("playButton");
+  const pauseButton = document.getElementById("pauseButton");
+  const audioPlayer = document.getElementById("audioPlayer");
+  const audioUrl = "<%= pollyGeneratedAudioUrl %>"; // Replace with the actual Polly-generated audio URL
+
+  playButton.addEventListener("click", () => {
+    audioPlayer.src = audioUrl;
+    audioPlayer.play();
+  });
+
+  pauseButton.addEventListener("click", () => {
+    audioPlayer.pause();
+  });
+</script>
 </body>
 </html>
