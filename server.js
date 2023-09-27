@@ -24,6 +24,14 @@ app.get("/", async(req, res) => {
   res.render("articles/index",{articles:articles});
 });
 
+app.get('/about', (req,res)=>{
+	//res.send(req.params.id)
+				//console.log("We here!");
+		//console.log(article);
+	res.sendFile(__dirname+'/about.html')
+
+	}
+)
 
 
 console.log("Now listening on port 5000...");

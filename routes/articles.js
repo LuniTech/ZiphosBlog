@@ -29,6 +29,17 @@ router.get('/:id', async(req,res)=>{
 	res.render('articles/show', {article : article});
 	}
 })
+
+router.get('/about', (req,res)=>{
+	//res.send(req.params.id)
+				//console.log("We here!");
+		//console.log(article);
+	res.render('articles/about');
+	}
+)
+
+
+
 router.post('/', async(req,res)=>{
 	let article = new Article({
 		title: req.body.title,

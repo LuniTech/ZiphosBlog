@@ -41,14 +41,15 @@ text-align: center;
 <div id="WebPic"></div>
 <br><br>
   <h1 class="mb-4 text-center">Innocent Lunika's </h1>
-   <h1 class="mb-4 text-center">Online Journal</h1>
+   <h1 class="mb-4 text-center">Introspection Blog</h1>
   <h4><span style="margin:auto">Tutorial Version, 2023 (with assistance from  <a href="https://youtu.be/1NrHkjlWVhM">Kyle Cook</a>)</span></h4>
    <% if (typeof error !== 'undefined') { %>
   <script>alert("<%= error %>");</script>
 <% } %>
   
   <a href="/articles/new" class="btn btn-success">New Article</a>
-  
+  <a href="/about" class="btn btn-success">About Me</a>
+  <a href="http://innocentlunitechv2.000webhostapp.com/" class="btn btn-success">Portfolio Site</a>
   <% articles.forEach(article => { %>
     <div class="card mt-4 transparent-bg-with-border">
     <div class= "card-body">
