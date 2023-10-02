@@ -5,15 +5,20 @@
 <style>
 body
 {
-background-color: rgba(255,255,255);
-background-position:center;
-background-image: url("../../Pics/Quill.jpg");
-background-repeat: no-repeat;
+background-color: rgba(192,192,192, 0.05);
+//background-color: rgba(255,255,255);
+//background-position:center;
+//background-image: url("../../Pics/Quill.jpg");
+//background-repeat: no-repeat;
 
 }
 .transparent-bg-with-border {
   background-color: transparent;
   border: 1px solid #000;
+}
+canvas
+{
+z-index: -2;
 }
 #WebPic
 {
@@ -71,6 +76,8 @@ text-align: center;
   
 </div>
 <br>
+ <canvas id="myCanvas" style="position: fixed; top: 0; left: 0;"></canvas>
 
+  <script src="script.js"></script>
 </body>
 </html>

@@ -14,6 +14,7 @@ let numnum = require("./exVariable")
 app.use(express.urlencoded({extended: false}))
 const router = express.Router();
 app.use("/Pics",express.static(__dirname+ '/Pics'))
+app.use(express.static(__dirname + '/public'));
 //app.use(express.urlencoded({extended: false}))  //StuffI edited
 app.use(methodOverride('_method'))
 app.use("/articles",articleRouter);
